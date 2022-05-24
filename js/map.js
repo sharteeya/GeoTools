@@ -16,7 +16,7 @@ const addMarkers = () => {
         if(Array.isArray(coor)){
             let marker = L.marker(coor);
             marker.addTo(map);
-            marker.bindPopup(`${coor}`);
+            marker.bindPopup(`${coor[2] === undefined ? coor : coor[2]}`);
             markers.push(marker);
             markerList.innerHTML += `<tr>
                                         <th scope="row">${markers.length}</th>

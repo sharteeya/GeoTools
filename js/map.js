@@ -9,25 +9,24 @@ let markerList = document.getElementById('markerList')
 const addMarkers = () => {
     texts = document.getElementById('coordinates').value;
     coordinates = JSON.parse(document.getElementById('coordinates').value);
-    if(!Array.isArray(coordinates)){
-        return;
-    }
+    if(!Array.isArray(coordinates)) return;
     coordinates.map((coor, i) => {
         if(Array.isArray(coor)){
             let marker = L.marker(coor);
             marker.addTo(map);
             marker.bindPopup(coor[2] === undefined ? `<strong>#${i+1}</strong>` : `<strong>#${i+1}</strong><br/>${coor[2]}`);
             markers.push(marker);
-            markerList.innerHTML += `<tr>
-                                        <th scope="row">${markers.length}</th>
-                                        <td>${coor[0]}</td>
-                                        <td>${coor[1]}</td>
-                                        <td>${coor[2] === undefined ? '' : coor[2]}</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success" onclick="moveCenterTo(${coor[0]},${coor[1]})">MoveTo</button>
-                                            <button type="button" class="btn btn-danger" onclick="removeMarker(${markers.length-1}, this)">Remove</button>
-                                        </td>
-                                    </tr>`;
+            markerList.innerHTML += `
+                <tr>
+                    <th scope="row">${markers.length}</th>
+                    <td>${coor[0]}</td>
+                    <td>${coor[1]}</td>
+                    <td>${coor[2] === undefined ? '' : coor[2]}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" onclick="moveCenterTo(${coor[0]},${coor[1]})">MoveTo</button>
+                        <button type="button" class="btn btn-danger" onclick="removeMarker(${markers.length-1}, this)">Remove</button>
+                    </td>
+                </tr>`;
         }
     });
 }

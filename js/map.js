@@ -22,6 +22,7 @@ const addMarkers = () => {
                                         <th scope="row">${markers.length}</th>
                                         <td>${coor[0]}</td>
                                         <td>${coor[1]}</td>
+                                        <td>${coor[2] === undefined ? '' : coor[2]}</td>
                                         <td>
                                             <button type="button" class="btn btn-success" onclick="moveCenterTo(${coor[0]},${coor[1]})">MoveTo</button>
                                             <button type="button" class="btn btn-danger" onclick="removeMarker(${markers.length-1}, this)">Remove</button>

@@ -1,4 +1,4 @@
-map = L.map('map').setView([22.733193, 120.284587], 14);
+map = L.map('map').setView([22.733193, 120.284587], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.openstreetmap.org/">OSM</a>',
     maxZoom: 18,
@@ -6,7 +6,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let markers = []
 let markerList = document.getElementById('markerList')
-function addMarkers(){
+const addMarkers = () => {
     texts = document.getElementById('coordinates').value;
     coordinates = JSON.parse(document.getElementById('coordinates').value);
     if(!Array.isArray(coordinates)){
@@ -33,12 +33,12 @@ function addMarkers(){
     });
 }
 
-function removeMarker(index, element){
+const removeMarker = (index, element) => {
     map.removeLayer(markers[index]);
     let e = element.parentElement.parentElement;
     e.remove();
 }
 
-function moveCenterTo(lat, lng){
+const moveCenterTo = (lat, lng) => {
     map.panTo(new L.LatLng(lat, lng));
 }

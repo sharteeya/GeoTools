@@ -1,4 +1,4 @@
-map = L.map('map').setView([22.733193, 120.284587], 13);
+map = L.map('map').setView([22.733193, 120.284587], 16);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.openstreetmap.org/">OSM</a>',
     maxZoom: 18,

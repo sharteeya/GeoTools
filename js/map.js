@@ -16,7 +16,7 @@ const addMarkers = () => {
         if(Array.isArray(coor)){
             let marker = L.marker(coor);
             marker.addTo(map);
-            marker.bindPopup(`${coor[2] === undefined ? coor : coor[2]}`);
+            marker.bindPopup(coor[2] === undefined ? `<strong>#${i+1}</strong>` : `<strong>#${i+1}</strong><br/>${coor[2]}`);
             markers.push(marker);
             markerList.innerHTML += `<tr>
                                         <th scope="row">${markers.length}</th>
@@ -28,8 +28,6 @@ const addMarkers = () => {
                                             <button type="button" class="btn btn-danger" onclick="removeMarker(${markers.length-1}, this)">Remove</button>
                                         </td>
                                     </tr>`;
-        }else{
-
         }
     });
 }
